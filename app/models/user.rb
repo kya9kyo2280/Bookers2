@@ -1,6 +1,7 @@
 class User < ApplicationRecord
 
-	validates :username,uniqueness: true
+	validates :name,uniqueness: true
+    validates :introduction, length: { maximum: 50 }
 
     # Include default devise modules. Others available are:
     # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -20,4 +21,3 @@ class User < ApplicationRecord
 
     attachment :profile_image
 end
-
