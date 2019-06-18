@@ -1,10 +1,26 @@
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
+
+<div class="container">
+      <div class="row">
+
+          <div class="col-lg-3" >
+            <%= render 'books/list', book: @newbook %>
+          </div>
+          <div class="col-lg-9">
 
 <h2>Title</h2>
 <p><%= @book.title %></p>
 <h2>Body</h2>
 <p><%= @book.body %></p>
 
-<%= link_to "Edit", edit_book_path(@book.id) %>
-<%= link_to "Delete", book_path(@book.id), method: :delete, "data-confirm" => "本当に消しますか？" %>
+<%= link_to "Edit", edit_book_path(@book) %>
+<%= link_to "Delete", book_path(@book), method: :delete, "data-confirm" => "本当に消しますか？" %>
+
+
+</div>
+</div>
+</div>
 
 
