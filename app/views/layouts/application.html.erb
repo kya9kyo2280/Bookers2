@@ -41,9 +41,6 @@
         <%= link_to "logout", destroy_user_session_path, method: :delete %></span>
       </li>
 
-      <li class="">
-        <%= link_to '投稿フォーム', new_book_path %>
-      </li>
 
     <% else %>
 
@@ -65,7 +62,8 @@
         <%= link_to "log in", new_user_session_path %></span>
       </li>
 
-    <% end %>
+   <% end %>
+
   </ul>
 </div>
         </div>
@@ -74,7 +72,13 @@
     </div>
 
     <%= yield %>
-　　
+
+    <div class="clearfix">
+    <div class="col-sm-3 col-md-2 sidebar">
+
+　　</div>
+    </div>
+
    <footer>
       <p class="text-right">
       CopyRight Infratop.inc
