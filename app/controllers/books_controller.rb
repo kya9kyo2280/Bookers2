@@ -2,6 +2,7 @@ class BooksController < ApplicationController
 
     def new
     	@book = Book.new
+        @book = current_user.books.build
     end
 
     def create
@@ -15,6 +16,7 @@ class BooksController < ApplicationController
         flash[:notice] = "errors prohibited this obj from being saved"
         redirect_to books_path
         end
+        @book = current_user.books.build(book_params)
     end
 
     def index
@@ -47,6 +49,15 @@ class BooksController < ApplicationController
         book.destroy
         redirect_to books_path
     end
+
+    def correct_user
+      @book = current_user.books.find_by(id: params[:id])
+      unless @book
+      redirect_to books_path
+      end
+    end
+
+    before_action :correct_user, only: [:edit, :update]
 
 
 end

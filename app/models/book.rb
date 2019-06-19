@@ -5,4 +5,6 @@ class Book < ApplicationRecord
     validates :title, length: { minimum: 1 }
     validates :body, length: { minimum: 1, maximum: 200 }
 
+    
+
 end
