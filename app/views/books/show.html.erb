@@ -1,7 +1,3 @@
-<% if flash[:notice] %>
-  <p><%= flash[:notice] %></p>
-<% end %>
-
 <div class="container">
       <div class="row">
 
@@ -9,18 +5,37 @@
             <%= render 'books/list', book: @newbook %>
           </div>
           <div class="col-lg-9">
+<h2>Book detail</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th> Image</th>
+      <th> Title</th>
+      <th> Body</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
 
-<h2>Title</h2>
-<p><%= @book.title %></p>
-<h2>Body</h2>
-<p><%= @book.body %></p>
+      <td><div class="form-group has-icon">
+        <div class="user-profile-image">
+        <%= attachment_image_tag @book.user, :profile_image,　format: 'jpeg', fallback: "no_image.jpg", size: "100x100" %>
+       </div>
+      </div></td>
 
-<%= link_to "Edit", edit_book_path(@book) %>
-<%= link_to "Delete", book_path(@book), method: :delete, "data-confirm" => "本当に消しますか？" %>
+      <td><%= link_to @book.title, book_path(@book.id) %></td>
+      <td><%= @book.body %></td>
+
+      <td><%= link_to "Edit", edit_book_path(@book), class: "btn btn-success btn-sm" %></td>
+      <td><%= link_to "Delete", book_path(@book), class: "btn btn-danger btn-sm", method: :delete, "data-confirm" => "本当に消しますか？" %></td>
+
+
+    </tr>
+  </tbody>
+
+</table>
 
 
 </div>
 </div>
 </div>
-
-
