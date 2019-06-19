@@ -11,6 +11,9 @@ class BooksController < ApplicationController
         if @book.save
         flash[:notice] = "You have creatad book successfully"
         redirect_to book_path (@book.id)
+        else
+        flash[:notice] = "errors prohibited this obj from being saved"
+        redirect_to books_path
         end
     end
 
