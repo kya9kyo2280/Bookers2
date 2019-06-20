@@ -17,11 +17,11 @@
   </thead>
   <tbody>
     <tr>
-
       <td><div class="form-group has-icon">
         <div class="user-profile-image">
         <%= link_to (attachment_image_tag @book.user, :profile_image,　format: 'jpeg', fallback: "no_image.jpg", size: "50x50"), user_path(@book.user.id) %>
        </div>
+       <%= link_to (@book.user.name), user_path(@book.user.id) %>
       </div></td>
       <td><%= link_to @book.title, book_path(@book.id) %></td>
       <td><%= @book.body %></td>
@@ -41,3 +41,4 @@
 </div>
 </div>
 </div>
+
