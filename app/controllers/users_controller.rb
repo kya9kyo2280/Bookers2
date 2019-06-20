@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+before_action :authenticate_user!
+
   def show
   	    @user = User.find(params[:id])
         @books = @user.books
@@ -7,6 +10,10 @@ class UsersController < ApplicationController
 
   def edit
    @user = User.find(params[:id])
+   if @user.id != current_user.id
+       redirect_to user_path(@current_user.id)
+
+   end
   end
 
   def update
@@ -15,7 +22,8 @@ class UsersController < ApplicationController
     flash[:notice] = "You have updated user successfully"
     redirect_to user_path(@user.id)
     else flash[:notice] = "1 error prohibited this obj from being saved:"
-    redirect_to edit_user_path
+    @user = User.find(params[:id])
+    render :edit
     end
   end
 

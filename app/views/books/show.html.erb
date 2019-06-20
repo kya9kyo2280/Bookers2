@@ -20,7 +20,7 @@
 
       <td><div class="form-group has-icon">
         <div class="user-profile-image">
-        <%= attachment_image_tag @book.user, :profile_image,　format: 'jpeg', fallback: "no_image.jpg", size: "100x100" %>
+        <%= link_to (attachment_image_tag @book.user, :profile_image,　format: 'jpeg', fallback: "no_image.jpg", size: "50x50"), user_path(@book.user.id) %>
        </div>
       </div></td>
 

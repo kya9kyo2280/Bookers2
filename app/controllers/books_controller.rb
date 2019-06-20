@@ -40,8 +40,13 @@ class BooksController < ApplicationController
         book.update(book_params)
         if book.update(book_params)
         flash[:notice] = "You have updated book successfully."
-        end
         redirect_to book_path(book.id)
+        else
+        flash[:notice] = "errors prohibited this obj from being saved"
+        @book = Book.find(params[:id])
+        render :edit
+        end
+
     end
 
     def destroy
@@ -58,6 +63,14 @@ class BooksController < ApplicationController
     end
 
     before_action :correct_user, only: [:edit, :update]
+
+    def ensure_correct_user
+       @book = Book.find_by(id: params[:id])
+       if @current_user.id != @post.user_id
+       redirect_to  books_path
+  end
+end
+
 
 
 end
