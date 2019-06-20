@@ -6,14 +6,14 @@ before_action :authenticate_user!
   	    @user = User.find(params[:id])
         @books = @user.books
         @newbook = Book.new
+         
   end
 
   def edit
    @user = User.find(params[:id])
-   if @user.id != current_user.id
+       if @user.id != current_user.id
        redirect_to user_path(@current_user.id)
-
-   end
+       end
   end
 
   def update
@@ -31,6 +31,7 @@ before_action :authenticate_user!
    @users = User.all
    @newbook = Book.new
    @user = User.find(current_user.id)
+
 
  end
 
