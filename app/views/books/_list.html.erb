@@ -28,12 +28,12 @@
 
     <div class="form-group">
       <h5>Title</h5>
-    <%= f.text_field :title  %>
+    <%= f.text_field :title, class:"form-control"%>
     </div>
 
-    <div class="col-xs-12" style = "width: 100%;">
+    <div class="form-group" >
       <h5>Body</h5>
-    <%= f.text_area :body %>
+    <%= f.text_area :body, class:"form-control"%>
     </div>
 
 　　<%= f.submit 'Create Book' ,class: " btn btn-primary  btn-block" %>
