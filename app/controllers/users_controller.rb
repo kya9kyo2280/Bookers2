@@ -6,7 +6,7 @@ before_action :authenticate_user!
   	    @user = User.find(params[:id])
         @books = @user.books
         @newbook = Book.new
-         
+
   end
 
   def edit
@@ -19,9 +19,9 @@ before_action :authenticate_user!
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-    flash[:notice] = "You have updated user successfully"
+    flash[:notice] = "You have updated user successfully."
     redirect_to user_path(@user.id)
-    else flash[:notice] = "1 error prohibited this obj from being saved:"
+    else flash[:notice] = "error prohibited this obj from being saved."
     @user = User.find(params[:id])
     render :edit
     end

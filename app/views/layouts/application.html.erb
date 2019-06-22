@@ -7,6 +7,7 @@
     <%= stylesheet_link_tag    'application', media: 'all'%>
     <%= javascript_include_tag 'application' %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Bookers</title>
   </head>
 
@@ -16,55 +17,64 @@
       <nav class="navbar navbar-main navbar-inverse" role="navigation" id="slide-nav">
         <div class="container relative">
           <div class="navbar-header">
-            <a class="navbar-brand" href="#">Bookers</a>
+            <a class="navbar-brand" style="color:white;font-size: 20px;
+    padding-top: 5px;">Bookers</a>
           </div>
           <div id="slidemenu">
-  <ul class="nav navbar-nav navbar-right" style="padding-top:15px;" >
+  <ul class="nav navbar-nav navbar-right" >
 
-<!-- 　　<div class="btn-group" role="group"> -->
 
     <% if user_signed_in? %>
 
-      <li class="">
-        <span class="glyphicon glyphicon-home " aria-hidden="true">
-        <%= link_to 'Home', user_path(current_user.id) %></span>
+      <li class=""style="color:white; padding-left: 5px;">
+        <%= link_to user_path(current_user.id)  do%>
+        <span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home
+        <%end%>
+     </li>
+
+     <li class=""style="color:white; padding-left: 5px;">
+        <%= link_to users_path do%>
+        <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Users
+        <%end%>
+     </li>
+
+
+      <li class=""style="color:white; padding-left: 5px;">
+        <%= link_to books_path  do%>
+        <span class="glyphicon glyphicon-book" aria-hidden="true"></span> Books
+        <%end%>
       </li>
 
-      <li class="">
-        <span class="glyphicon glyphicon-user" aria-hidden="true">
-        <%= link_to 'Users', users_path %></span>
-      </li>
-
-      <li class="">
-        <span class="glyphicon glyphicon-book" aria-hidden="true">
-        <%= link_to 'Books', books_path %></span>
-      </li>
-
-      <li class="">
-        <span class="glyphicon glyphicon-log-out" aria-hidden="true">
-        <%= link_to "logout", destroy_user_session_path, method: :delete %></span>
+      <li class=""style="color:white; padding-left: 5px;">
+        <%= link_to destroy_user_session_path, method: :delete do%>
+        <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout
+        <%end%>
       </li>
 
     <% else %>
 
-      <li class="">
-        <span class="glyphicon glyphicon-home" aria-hidden="true">
-        <%= link_to 'Home', root_path %></span>
+      <li class=""style="color:white; padding-left: 5px ;">
+        <%= link_to root_path  do%>
+        <span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home
+        <%end%>
       </li>
 
-      <li class="">
-        <span class="glyphicon glyphicon-link" aria-hidden="true">
-        <%= link_to 'About', home_about_path %></span>
+      <li class=""style="color:white; padding-left: 5px;">
+        <%= link_to home_about_path  do%>
+        <span class="glyphicon glyphicon-link" aria-hidden="true"></span> About
+        <%end%>
       </li>
 
-      <li class="">
-        <span class="glyphicon glyphicon-edit" aria-hidden="true">
-        <%= link_to "sign up", new_user_registration_path %></span>
+      <li class=""style="color:white; padding-left: 5px;">
+        <%= link_to new_user_registration_path  do%>
+        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Sign up
+        <%end%>
       </li>
 
-      <li class="">
-        <span class="glyphicon glyphicon-log-in" aria-hidden="true">
-        <%= link_to "log in", new_user_session_path %></span>
+      <li class=""style="color:white; padding-left: 5px;">
+        <%= link_to new_user_session_path  do%>
+        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Log in
+        <%end%>
       </li>
 
    <% end %>
@@ -89,7 +99,7 @@
     </div>
 
    <footer>
-      <p class="text-right">
+      <p class="text-right" style=" padding-right: 20%;">
       CopyRight Infratop.inc
       </p>
     </footer>

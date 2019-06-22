@@ -10,10 +10,10 @@ class BooksController < ApplicationController
         @book.user_id = current_user.id
         @book.save
         if @book.save
-        flash[:notice] = "You have creatad book successfully"
+        flash[:notice] = "You have creatad book successfully."
         redirect_to book_path (@book.id)
         else
-        flash[:notice] = "errors prohibited this obj from being saved"
+        flash[:notice] = "errors prohibited this obj from being saved."
         redirect_to books_path
         end
         @book = current_user.books.build(book_params)
@@ -50,7 +50,7 @@ class BooksController < ApplicationController
         flash[:notice] = "You have updated book successfully."
         redirect_to book_path(book.id)
         else
-        flash[:notice] = "errors prohibited this obj from being saved"
+        flash[:notice] = "errors prohibited this obj from being saved."
         @book = Book.find(params[:id])
         render :edit
         end
